@@ -1,0 +1,45 @@
+Day 4 Task 
+
+//how to compare 2 JSON having the same properties without order?
+
+let obj1 = { name: "Person1", age: 5 };
+let obj2 = { age: 5, name: "Person1" };
+
+let result = JSON.stringify(obj1) == JSON.stringify(obj2);
+console.log(result);
+
+//Output : false
+
+========================================================================================================================================================
+
+//Use the rest countries API URL https://restcountries.com/v3.1/all and display all the 
+//country flags in the console
+
+fetch("https://restcountries.com/v3.1/all")
+  .then(res => res.json())
+  .then(data => {
+    data.forEach(country => {
+      console.log(country.flag);
+    });
+  })
+  .catch(error => console.error(error));
+
+
+========================================================================================================================================================
+//Use the same rest countries API URL https://restcountries.com/v3.1/all and print all countries names,regions,sub-region and populations.
+
+
+
+fetch("https://restcountries.com/v3.1/all")
+  .then(res => res.json())
+  .then(data => {
+    data.forEach(country => {
+      console.log(`
+        Name: ${country.name}
+        Region: ${country.region}
+        Sub-region: ${country.subregion}
+        Population: ${country.population}
+      `);
+    });
+  })
+  .catch(error => console.error(error));
